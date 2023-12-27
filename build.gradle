@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+repositories {
+    mavenCentral()
+}
+jar {
+    manifest {
+        attributes 'Main-Class': application.getMainClass()
+    }
+}
+dependencies {
+    implementation 'org.telegram:telegrambots:6.5.0'
+    implementation 'ch.qos.logback:logback-classic:1.4.7'
+}
+
+application {
+    getMainClass().set("org.example.Main")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
